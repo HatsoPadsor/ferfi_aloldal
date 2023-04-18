@@ -1,0 +1,95 @@
+@font-face {font-family: 'Inter'; font-display: swap;}
+@font-face {font-family: 'Material Symbols Outlined'; font-display: swap;}
+
+body{background: #212121; width: 100%; margin: 0px;font-family: 'Inter', sans-serif; color: #f6f6f6;}
+
+#navbar{z-index:100;position:sticky;margin: 0px; top:-70px; left: 0px; width: 100%; display: flex; align-items: center;
+    justify-content: space-between;height: 70px; background: #0f1011; transition: 0.25s linear; padding: 0px;}
+
+#navbar.scrolled-down{top:0px;box-shadow: 0 10px 50px rgba(255,255,255,0.14);}
+
+#navbar.links{display:flex;}
+
+#navbar a, footer a{color: #dedede; text-transform: uppercase; text-decoration: none; margin: 10px; transition: all 0.4s;}
+#navbar a:hover, footer a:hover{color: #fff; text-shadow: 1px 1px 1px #fff;transition: all 0.4s; text-transform: uppercase; text-decoration: none; margin: 10px;}
+
+#navbar img{width: 34px; height: 34px;}
+
+#page_content{width: 90%; margin: auto;}
+
+#sidebars{display: flex; justify-content: space-between;}
+#page_content{margin-top: 10px;}
+#left_sidebar, #search_sidebar, #max_price_sidebar, #colors_sidebar, #sizes_sidebar{background: #252525; padding: 10px; border-radius: 16px;width:280px; margin-right: 20px;}
+.left_sidebar_category{display: flex; align-items: center;justify-items: center; padding: 5px 0px; border-bottom: 2px solid #212121; cursor: pointer;}
+.left_sidebar_category.checked{display: flex; align-items: center;justify-items: center; padding: 5px 0px; border-radius: 16px; background-color: #212121;}
+#left_sidebar img{width: 50px; height: 60px; object-fit: cover; margin-right: 10px;}
+.out_of_h6{color: yellow;}
+
+#left_sidebar a{color: #f6f6f6;font-size: 16px; font-weight: bold; text-decoration: none;}
+
+#product_bar{background: #252525; padding: 10px; border-radius: 16px;width:80%;}
+#searched_products_div{display:none;transition: 0.3s; opacity:0;width:80%;}
+#searched_products_filter_div, #search_product_bar{background: #252525;padding: 10px; border-radius: 16px; width: 100%;}
+
+#highlighted{text-align: center; overflow: hidden;}
+#highlighted video{width: 100%; border-radius: 16px; z-index: 0; position: relative; object-fit: cover;}
+
+#highlighted_video_cover{transition: all 0.2s;opacity: 0; z-index: 1; position: absolute; top: 20px; width: 100%; height: 100%; background: linear-gradient(to top, #000 0%, rgba(0,0,0,0) 100%); left: 0; right: 0; border-radius: 16px;}
+
+.product-grid{display: flex;flex-wrap: wrap;gap: 20px; justify-content: center;}
+
+.product-card{cursor:pointer;width: 280px;background-color: #252525;border: 1px solid #ddd; border-radius:8px;padding: 20px;text-align: center;}
+
+.product-card img{width: 100%;height: 420px;object-fit:cover;margin-bottom: 10px; border-radius: 8px;}
+
+.product-card h3{margin-top: 0;}
+
+.product-card p{font-weight: bold;margin-bottom: 10px;}
+
+.buy_button{bottom:0px;display: flex; align-items: center; justify-content: center; background-color:goldenrod;color: #fff;margin-right:5px;padding: 8px 12px;text-decoration: none;border-radius: 4px;transition: background-color 0.3s ease;}
+.buy_button:hover{background-color: darkgoldenrod;cursor: no-drop;}
+
+.favorite_button{bottom:0px;display:inline-block;background-color:#f6f6f6;color: #252525;padding: 8px 12px;text-decoration: none;border-radius: 4px;transition: background-color 0.3s ease;}
+.favorite_button:hover{background-color: #CDCDCD;cursor: no-drop;}
+
+.product_price{color: goldenrod;}
+.product-availablity{color: yellow;}
+
+input[type="text"],input[type="number"]{padding: 10px;border: none;border-radius: 6px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);font-size: 16px;background-color:#333;color:#f6f6f6;transition: box-shadow 0.3s ease;}
+#sort_by{padding: 10px;border: none;border-radius: 6px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);font-size: 16px;background-color:#333;color:#f6f6f6;transition: box-shadow 0.3s ease;}
+
+input[type="text"],input[type="number"]:focus{outline: none;box-shadow: 0 4px 9px rgba(0, 0, 0, 0.3);}
+
+#max_price_font{color: goldenrod;}
+
+#notification_div{z-index:1000;position:fixed; max-width:400px; opacity:0; user-select:none; line-height:28px; top:50px; padding:20px 15px; background-color:#212121; border-bottom-right-radius:10px;border-top-right-radius:10px; font-family:'Raleway', sans-serif; margin-left:-450px; transition:margin 0.4s, opacity 0.5s, top 0.5s;}
+#notification_title{display:block;color:#fff;font-size:20px;}
+#notification_subtitle{display:block;color:#cbcbcb;font-size:18px;font-family:'Raleway', sans-serif;}
+.key_combo{background-color:#fff;color:#212121; padding:5px; border-radius:5px; margin-left:5px;}
+
+.modal{color:#000;display:none;position: fixed;z-index: 99;left: 0;top: 0;width: 100%;height: 100vh;overflow: hidden;background-color: rgba(0,0,0,0.6); opacity: 0;transition: opacity 0.3s;}
+.modal h4{margin: 5px 0px;}
+.modal img{height: 420px; width: 280px; object-fit: cover;}
+.modal-content{background-color: #fefefe;margin: 10% auto;padding: 20px;border: 1px solid #888;width: 50%;}
+
+#modal_name, #modal_description, #modal_price, #modal_availible{color: goldenrod;}
+
+#not_supported_div{display: none; align-items: center; top:0px; width: 100%; height: 100vh; position: fixed; z-index: 9999999; background: #0f1011;}
+
+@media (max-width: 720px) {
+    #not_supported_div{display: flex;}
+}
+
+.color-selector{display: flex;}
+.color-selector label {margin-right: 10px;display: inline-block;}
+.color-selector input[type="checkbox"]{display: none;}
+.color-selector span{display: inline-block;width: 20px;height: 20px;border-radius: 50%;border: 1px solid #ccc;cursor: pointer;}
+.color-selector .white{background-color: #fff;}
+.color-selector .black{background-color: #000;}
+.color-selector .colorful {background: linear-gradient(to bottom right, red, orange, yellow, green, blue, purple);}
+.color-selector input[type="checkbox"]:checked + label span {border-color: #000;box-shadow: 0 0 0 2px #000;}
+
+.checkbox-label{display: inline-flex;align-items: center;padding: 3px;border-radius: 24px;cursor: pointer;font-weight: bold;font-size: 16px;}
+.size_checkbox{display: none;}
+.size_checkbox:checked + .checkbox-symbol{background-color: goldenrod;color: #fff;}
+.checkbox-symbol{display: inline-block;width: 32px;height: 32px;line-height: 32px;text-align: center;border-radius: 50%;background-color: #212121;transition: background-color 0.3s ease, color 0.3s ease;}

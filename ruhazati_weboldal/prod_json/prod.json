@@ -1,0 +1,139 @@
+{
+  "categories": [
+    {
+      "name": "RN",
+      "image": "../prods/rn_logo.webp",
+      "link": "rn_merch",
+      "show_logo": true,
+      "products": [
+        {
+          "name": "ikke-király feliratú mez",
+          "description": "ikke feliratú Rapid Ninjas kényelmes póló",
+          "price": "5000",
+          "availability": "0",
+          "image": "../prods/ikke_rapid_ninjas_tshirt.webp",
+          "sizes": ["M","L","XL"],
+          "colors": ["Lila"]
+        }
+      ]
+    },{
+      "name": "LLH",
+      "image": "../prods/llh.webp",
+      "link": "rn_merch",
+      "show_logo": true,
+      "products": [{
+          "name": "Tigene apánk feliratú mez",
+          "description": "Tigene apánk feliratú mindenre használható póló, még mosni se kell",
+          "price": "5000",
+          "availability": "0",
+          "image": "../prods/tigene.webp",
+          "sizes": ["M","L","XL"],
+          "colors": ["Piros"]
+        }
+      ]
+    },{
+      "name": "Férfi pólók",
+      "link": "men_shirts",
+      "image": "../prods/tshirts.webp",
+      "products": [
+        {
+          "name": "Levi's 9212824",
+          "description": "Levi's logóval ellátott férfi póló, több színben, M",
+          "price": "14825",
+          "availability": "10",
+          "image": "../prods/levis9212824.webp",
+          "sizes": ["S","M","L","XL", "2XL"],
+          "colors": ["Barna", "Zöld", "Fekete", "Fehér"]
+        },
+        {
+          "name": "Férfi divat, vagány póló",
+          "description": "Egy menő és kényelmes póló tetovált embereknek",
+          "price": "10749",
+          "availability": "3",
+          "image": "../prods/tetkos_polo.webp",
+          "sizes": ["M","L","XL", "2XL", "3XL"],
+          "colors": ["Fehér"]
+        },
+        {
+          "name": "Nike fekete férfi póló",
+          "description": "Nike fekete férfi póló, Nike ruha > Póló fekete",
+          "price": "9990",
+          "availability": "13",
+          "image": "../prods/nike_fekete_polo.webp",
+          "sizes": ["S","M","L","XL"],
+          "colors": ["Fekete"]
+        }
+      ]
+    },
+    {
+      "name": "Nadrágsz",
+      "link": "men_pants",
+      "image": "../prods/pants.webp",
+      "products": [{
+        "name": "ATHLETIC 475",
+        "description": "Sportos zsebes férfi nadrág",
+        "price": "15180",
+        "availability": "0",
+        "image": "../prods/athletic_475.webp",
+        "sizes": ["32","33","34"],
+        "colors": ["Barna", "Fekete", "Kék"]
+      },{
+        "name": "Charj Denim",
+        "description": "Férfi nadrág 7215 Zöld",
+        "price": "7800",
+        "availability": "0",
+        "image": "../prods/charj_denim.webp",
+        "sizes": ["31","32","33","34"],
+        "colors": ["Zöld"]
+      },{
+        "name": "Adidas nadrág",
+        "description": "Adidas Originals Adicolor Classics",
+        "price": "11300",
+        "availability": "0",
+        "image": "../prods/adidas_originals_adicolor.webp",
+        "sizes": ["32","33","34"],
+        "colors": ["Piros"]
+      }
+      ]
+    },
+    {
+      "name": "Férfi cipők",
+      "link": "men_shoes",
+      "image": "../prods/shoes.webp",
+      "products": [{
+        "name": "ch-091 black",
+        "description": "Divatos férfi cipő",
+        "price": "10990",
+        "availability": "10",
+        "image": "../prods/ch_091.webp",
+        "sizes": ["41","42"],
+        "colors": ["Fekete"]
+      },{
+        "name": "T/682",
+        "description": "Férfi cipő fekete",
+        "price": "8300",
+        "availability": "10",
+        "image": "../prods/t682.webp",
+        "sizes": ["42","43","44"],
+        "colors": ["Fekete"]
+      },{
+          "name": "Pegada cipő",
+          "description": "Pegada férfi cipő(117410-06)",
+          "price": "13290",
+          "availability": "20",
+          "image": "../prods/117410.webp",
+        "sizes": ["41"],
+        "colors": ["Kék"]
+      },{
+          "name": "Devergó férfi cipő",
+          "description": "DELTA 10093, fekete",
+          "price": "13290",
+          "availability": "40",
+          "image": "../prods/10093_1.webp",
+        "sizes": ["42","43","44","45"],
+        "colors": ["Fekete"]
+      }
+      ]
+    }
+  ]
+}
