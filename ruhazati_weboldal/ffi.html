@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A ruházati webáruház férfi aloldala">
+    <meta name="keywords" content="Férfi ruhák">
+    <meta name="author" content="Hátsó Padsor">
+    <!--    <meta name="viewport"-->
+    <!--          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Férfi ruházat | Ruházati Webáruház</title>
+
+    <!--    Stílusok importálása-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="design/ferfi.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://th.bing.com/th/id/OIG.8xBpj7Cyu3FCrVGfUltJ?pid=ImgGn">
+
+</head>
+<body>
+
+<!--A navigáiós sáv-->
+<nav id="navbar" class="container">
+    <div style="display: flex; align-items: center;">
+        <img src="https://th.bing.com/th/id/OIG.8xBpj7Cyu3FCrVGfUltJ?pid=ImgGn" alt="Ruházati Webáruház">
+        <span style="display: inline-block; margin-left: 10px;">Ruházati Webáruház</span>
+    </div>
+
+    <div class="links">
+        <a href="index.html">Aktuális ajánlatok</a>
+        <a href="#" style="color: white;">Férfi ruhák</a>
+        <a href="noi.html">Női ruhák</a>
+        <a href="kieg.html">Kiegészítők</a>
+        <a href="cipok.html">Cipők</a>
+    </div>
+</nav>
+
+<!--A lényegi tartalom ebben jelenik meg-->
+<main id="page_content">
+
+    <div id="sidebars">
+        <div>
+            <!--           A kategóriák itt jelennek majd meg-->
+            <div id="left_sidebar">
+                <h3>Válassz egy kategóriát:</h3>
+            </div>
+            <!--           Itt lehet keresni szöveg alapján-->
+            <div id="search_sidebar" style="margin-top: 20px;">
+                <h3>Keresés</h3>
+                <div style="width: 260px;">
+                    <input id="search_by_input" type="text" name="search_by" placeholder="Keresés" style="width: 100%;" oninput="searching()" onchange="searching();">
+                </div>
+            </div>
+            <!--           Itt lehet beállítani a maximális árat-->
+            <div id="max_price_sidebar" style="margin-top: 20px;">
+                <h3>Maximum ár</h3>
+                <div style="width: 260px;">
+                    <input id="max_price_input" type="range" value="-1" name="max_price" style="width: 100%;" onchange="searching();">
+                    <span id="max_price_font"></span>
+                </div>
+            </div>
+
+            <!--           Itt lehet színek alapján szűrni-->
+            <div id="colors_sidebar" style="margin-top: 20px;">
+                <h3>Színek</h3>
+                <div style="width: 260px;">
+                    <div class="color-selector">
+                        <input type="checkbox" name="white" id="color_white" oninput="searching()">
+                        <label for="color_white"><span class="white"></span></label>
+
+                        <input type="checkbox" name="black" id="color_black" oninput="searching()">
+                        <label for="color_black"><span class="black"></span></label>
+
+                        <input type="checkbox" name="colorful" id="color_colorful" oninput="searching()">
+                        <label for="color_colorful"><span class="colorful"></span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!--           A méretek szerint itt lehet szűrni-->
+            <div id="sizes_sidebar" style="margin-top: 20px;">
+                <h3>Méretek</h3>
+                <div id="size_list_div" style="width: 260px;">
+                    <div style="display: flex; align-items: center;"> <span class="material-symbols-outlined" style="margin-right: 5px;">warning</span><span>Választanod kell 1 kategóriát</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!--       Ha a szűrés érvényben van, itt jelenik meg a tartalom-->
+        <div id="searched_products_div">
+            <div id="searched_products_filter_div">
+                <div>
+                    <span style="font-size: 24px;"><span id="founded_products"></span> találat: <q id="searched_text_q" style="font-weight: bold; font-size: 32px;"></q></span>
+                </div>
+                <hr>
+                <div style="display: flex; align-items: center;">
+                    <label for="sort_by" style="margin-right: 10px;">Rendezési kritérium</label>
+                    <select id="sort_by" oninput="searching();" onchange="searching()">
+                        <option value="Relevancia" selected>Relevancia</option>
+                        <option value="Ár szerint növekvő">Ár szerint növekvő</option>
+                        <option value="Ár szerint csökkenő">Ár szerint csökkenő</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="search_product_bar" style="margin-top: 10px;">
+
+            </div>
+
+        </div>
+
+        <!--       Ez a képernyő fogad alapból, és akkor, ha nem keresünk semmi alapján se-->
+        <div id="product_bar">
+            <div>
+                <!--               A kiemelt videónk, hajrá ex-Rapid Ninjas!-->
+                <div id="highlighted">
+                    <h1 style="text-align: center;"><q>Amennyit ad,annyit elvesz,de annyit ad is.</q></h1>
+                    <div style="position: relative;">
+                        <video id="highlighted_video" src="../prods/rapid_ninjas_merch.mp4" autoplay onloadstart="this.volume = 0;" onended="this.currentTime = 0; this.play();"></video>
+                        <div id="highlighted_video_cover" onmouseenter="showHightlightedVideoCover()" onmouseout="hideHightlightedVideoCover()">
+                            <div style="position: absolute; bottom: 0px; padding: 10px 20px; text-align: left;">
+                                <h1>Rapid Ninjas cuccok csak nálunk!</h1>
+                                <h3 style="margin-top: -20px;">Szurkolj a kedvenc csapatodnak a saját mezükben!</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--               A kategóriák tartalma itt jelennek meg-->
+                <div id="cloths_cat"></div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<!--A modal ablak, itt jelennek meg egyben az információk a termékről-->
+<div id="prod_modal" class="modal">
+    <div class="modal-content">
+        <h1 id="modal_name">Ez a termék jelenleg nem érhető el</h1>
+
+        <div style="display: flex; align-items: center;justify-content: center;">
+            <div>
+                <img id="modal_image" src="https://th.bing.com/th/id/OIG.8xBpj7Cyu3FCrVGfUltJ?pid=ImgGn" alt="Bővebb információ">
+            </div>
+            <div style="display: block; margin-left: 40px;">
+                <div>
+                    <h4>Leírás</h4>
+                    <span id="modal_description"></span>
+                </div>
+
+                <div>
+                    <h4>Ár</h4>
+                    <span id="modal_price"></span>
+                </div>
+
+                <div>
+                    <h4>Színek</h4>
+                    <span id="modal_colors"></span>
+                </div>
+
+                <div>
+                    <h4>Méretek</h4>
+                    <div id="modal_sizes" class="color-selector" style="margin: 10px 0px;cursor:no-drop;"></div>
+
+                </div>
+
+                <div>
+                    <h4>Állapot</h4>
+                    <span id="modal_availible"></span>
+                </div>
+
+                <div style="display: flex; align-items: center; margin-top: 10px;">
+                    <span class="material-symbols-outlined" style="margin-right: 5px;">warning</span>
+                    <span id="modal_sizes_warning"></span>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; float: right;">
+            <span id="modal_close_button" class="buy_button" style="cursor:pointer;" onclick="closeModal();">Bezárás</span>
+            <span id="modal_action_font" class="favorite_button" style="display: flex; justify-content: center;"></span>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+
+<!--Az értesítések itt jelennek meg-->
+<div id="notification_div">
+    <span id="notification_title"></span>
+    <span id="notification_subtitle"></span>
+</div>
+
+<!--Ha a megjelenítő ablak mérete kisebb, mint 720px, ez a div megjelenik-->
+<div id="not_supported_div">
+    <h1 style="margin: auto; text-align: center;">A megjelenítés mérete nem támogatott</h1>
+</div>
+
+<!--Továbbiak rólunk-->
+<footer style="width: 100%;margin-top:10px;text-align: center;background-color: #252525;">
+    <div style="padding: 16px;">
+        <a href="rolunk.html">©️ Hátsó Padsor</a>
+        <span>•</span>
+        <a href="elerh.html">Kapcsolatfelvétel</a>
+    </div>
+</footer>
+
+<!--Srciptek-->
+<script src="scripts/ferfi.js"></script>
+<script src="scripts/notificationManager.js"></script>
+
+</body>
+</html>
