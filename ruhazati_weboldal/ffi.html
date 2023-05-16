@@ -14,7 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="design/ferfi.css">
     <link rel="shortcut icon" type="image/x-icon" href="https://th.bing.com/th/id/OIG.8xBpj7Cyu3FCrVGfUltJ?pid=ImgGn">
 
@@ -50,14 +51,16 @@
             <div id="search_sidebar" style="margin-top: 20px;">
                 <h3>Keresés</h3>
                 <div style="width: 260px;">
-                    <input id="search_by_input" type="text" name="search_by" placeholder="Keresés" style="width: 100%;" oninput="searching()" onchange="searching();">
+                    <input id="search_by_input" type="text" name="search_by" placeholder="Keresés" style="width: 100%;"
+                           oninput="searching()" onchange="searching();">
                 </div>
             </div>
             <!--           Itt lehet beállítani a maximális árat-->
             <div id="max_price_sidebar" style="margin-top: 20px;">
                 <h3>Maximum ár</h3>
                 <div style="width: 260px;">
-                    <input id="max_price_input" type="range" value="-1" name="max_price" style="width: 100%;" onchange="searching();">
+                    <input id="max_price_input" type="range" value="-1" name="max_price" style="width: 100%;"
+                           onchange="searching();">
                     <span id="max_price_font"></span>
                 </div>
             </div>
@@ -83,7 +86,9 @@
             <div id="sizes_sidebar" style="margin-top: 20px;">
                 <h3>Méretek</h3>
                 <div id="size_list_div" style="width: 260px;">
-                    <div style="display: flex; align-items: center;"> <span class="material-symbols-outlined" style="margin-right: 5px;">warning</span><span>Választanod kell 1 kategóriát</span></div>
+                    <div style="display: flex; align-items: center;"><span class="material-symbols-outlined"
+                                                                           style="margin-right: 5px;">warning</span><span>Választanod kell 1 kategóriát</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,7 +97,8 @@
         <div id="searched_products_div">
             <div id="searched_products_filter_div">
                 <div>
-                    <span style="font-size: 24px;"><span id="founded_products"></span> találat: <q id="searched_text_q" style="font-weight: bold; font-size: 32px;"></q></span>
+                    <span style="font-size: 24px;"><span id="founded_products"></span> találat: <q id="searched_text_q"
+                                                                                                   style="font-weight: bold; font-size: 32px;"></q></span>
                 </div>
                 <hr>
                 <div style="display: flex; align-items: center;">
@@ -118,8 +124,10 @@
                 <div id="highlighted">
                     <h1 style="text-align: center;"><q>Amennyit ad,annyit elvesz,de annyit ad is.</q></h1>
                     <div style="position: relative;">
-                        <video id="highlighted_video" src="../prods/rapid_ninjas_merch.mp4" autoplay onloadstart="this.volume = 0;" onended="this.currentTime = 0; this.play();"></video>
-                        <div id="highlighted_video_cover" onmouseenter="showHightlightedVideoCover()" onmouseout="hideHightlightedVideoCover()">
+                        <video id="highlighted_video" src="../prods/rapid_ninjas_merch.mp4" autoplay
+                               onloadstart="this.volume = 0;" onended="this.currentTime = 0; this.play();"></video>
+                        <div id="highlighted_video_cover" onmouseenter="showHightlightedVideoCover()"
+                             onmouseout="hideHightlightedVideoCover()">
                             <div style="position: absolute; bottom: 0px; padding: 10px 20px; text-align: left;">
                                 <h1>Rapid Ninjas cuccok csak nálunk!</h1>
                                 <h3 style="margin-top: -20px;">Szurkolj a kedvenc csapatodnak a saját mezükben!</h3>
@@ -144,7 +152,8 @@
 
         <div style="display: flex; align-items: center;justify-content: center;">
             <div>
-                <img id="modal_image" src="https://th.bing.com/th/id/OIG.8xBpj7Cyu3FCrVGfUltJ?pid=ImgGn" alt="Bővebb információ">
+                <img id="modal_image" src="https://th.bing.com/th/id/OIG.8xBpj7Cyu3FCrVGfUltJ?pid=ImgGn"
+                     alt="Bővebb információ">
             </div>
             <div style="display: block; margin-left: 40px;">
                 <div>
@@ -181,7 +190,8 @@
         </div>
 
         <div style="display: flex; align-items: center; float: right;">
-            <span id="modal_close_button" class="buy_button" style="cursor:pointer;" onclick="closeModal();">Bezárás</span>
+            <span id="modal_close_button" class="buy_button" style="cursor:pointer;"
+                  onclick="closeModal();">Bezárás</span>
             <span id="modal_action_font" class="favorite_button" style="display: flex; justify-content: center;"></span>
         </div>
         <div style="clear: both;"></div>
@@ -197,6 +207,21 @@
 <!--Ha a megjelenítő ablak mérete kisebb, mint 720px, ez a div megjelenik-->
 <div id="not_supported_div">
     <h1 style="margin: auto; text-align: center;">A megjelenítés mérete nem támogatott</h1>
+</div>
+
+<!--Ez jelenik meg, ha nem sikerül a fetchelés-->
+<div id="failed_to_load_div">
+    <div style="margin: auto;">
+        <div style="float: left;">
+            <h1 style="margin-bottom: 0px;">418</h1>
+            <span>A kávénk elfogyott, de van teánk. Kínálhatlak azzal? <br></span>
+            <span style="color: #656565;">Nem sikerült betölteni a prod_json/prod.json fájlt. Ez a hiba lehet átmeneti vagy nem. <br></span>
+            <span style="color: #656565;">Teáskanna vagyok: Ez a kód 1998-ban lett definiálva, áprilisi tréfának szánták. Nem használják.</span>
+        </div>
+        <div style="float: right;">
+            <img src="https://s3.amazonaws.com/images.seroundtable.com/google-teapot-1409054613.gif" alt="">
+        </div>
+    </div>
 </div>
 
 <!--Továbbiak rólunk-->

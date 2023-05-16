@@ -1,6 +1,7 @@
 let json;
 let searchList = [];
 
+const pageContent = document.getElementById("page_content");
 const navBar = document.getElementById("navbar");
 const highlightedVideo = document.getElementById("highlighted_video");
 const highlightedVideoCover = document.getElementById("highlighted_video_cover");
@@ -41,7 +42,10 @@ const modalAvailible = document.getElementById("modal_availible");
 const modalCloseButton = document.getElementById("modal_close_button");
 const modalActionFont = document.getElementById("modal_action_font");
 
+const failedToLoadDiv = document.getElementById("failed_to_load_div");
+
 let mode = false;
+let isModeChanging = false;
 
 //A gigakemény navigációssávhoz tartozó script
 const onScroll = () =>{
@@ -124,12 +128,22 @@ window.onclick = function(event) {
 
 //Fetcheljük a termékek json fájlját
 async function loadFile(){
-    let response = await fetch("../prod_json/prod.json");
-    json = await response.json();
-    if(response.ok){
-        loadProd();
-    }
 
+    let response = await fetch("../prod_json/prod.json").then(async (response) => {
+        json = await response.json()
+        if (response.ok) {
+            loadProd();
+        } else failedToLoad();
+    }).catch(error => {
+        console.log(error)
+        failedToLoad();
+    });
+}
+
+//Hiba történt a fetchelés során
+async function failedToLoad(){
+    failedToLoadDiv.style.display = "flex";
+    pageContent.style.display = "none";
 }
 
 //Az alap terméklista betöltése
@@ -229,7 +243,12 @@ function searching(){
     if(hasSelectedCategory())mode=true;
     getSelectedCategoryNumber();
 
-    changeMode();
+    if(!isModeChanging)changeMode();
+    else{
+        setTimeout(()=>{
+            changeMode();
+        },300)
+    }
 }
 
 //Visszaadja, hogy van-e kategória kiválasztva
@@ -282,12 +301,14 @@ function manageSizes(){
 
 //Mód váltás - false: ha a felhasználó nincs keresés módban|true: ha a felhasználó keresést hajt végre (szöveg alapján keres vagy szűr valami szerint)
 function changeMode(){
+    isModeChanging = true;
     if(!mode){ //A kezdőképernyő a kiemelt videóval és külön kategóriákra bontással jelenjen meg, a keresési képernyő tűnjön el
         productBar.style.display = "flex";
         searchedProductsDiv.style.opacity = "0";
         setTimeout(function(){
             searchedProductsDiv.style.display = "none";
             productBar.style.opacity = "1";
+            isModeChanging = false;
         }, 300);
         loadProd()
     }else{ //A kezdőképernyő a kiemelt videóval és külön kategóriákra bontással tűnjün el, a keresési képernyő jelenjen meg
@@ -296,6 +317,7 @@ function changeMode(){
         setTimeout(function(){
             productBar.style.display = "none";
             searchedProductsDiv.style.opacity = "1";
+            isModeChanging = false;
         }, 300);
         searchProduct();
     }
